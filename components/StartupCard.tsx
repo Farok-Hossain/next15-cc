@@ -1,8 +1,12 @@
+import { formatDate } from "@/lib/utils";
+
 const StartupCard = ({ post }: { post: StartupCardType }) => {
   return (
-    <div>
-      <h1>StartupCard</h1>
-    </div>
+    <li className="startup-card grup">
+      <div className="flex-between">
+        <p className="startup_card_date">{formatDate(post._createdAt)}</p>
+      </div>
+    </li>
   );
 };
 
