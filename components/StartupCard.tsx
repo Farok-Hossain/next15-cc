@@ -2,6 +2,7 @@ import { formatDate } from "@/lib/utils";
 import { EyeIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "./ui/button";
 
 const StartupCard = ({ post }: { post: StartupCardType }) => {
   const {
@@ -12,6 +13,7 @@ const StartupCard = ({ post }: { post: StartupCardType }) => {
     category,
     _id,
     image,
+    description,
   } = post;
   return (
     <li className="startup-card grup">
@@ -40,6 +42,26 @@ const StartupCard = ({ post }: { post: StartupCardType }) => {
             className="rounded-full"
           />
         </Link>
+      </div>
+      <Link href={`/startup/${_id}`}>
+        <p className="startup-card_desc">{description}</p>
+        {/* <Image
+          src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg"
+          width={900}
+          height={600}
+          alt="placeholder"
+          className="startup-card_img"
+        /> */}
+        <img src={image} alt="placeholder" className="startup-card_img" />
+      </Link>
+
+      <div className="flex-between gap-3 mt-5">
+        <Link href={`/?query=${category.toLowerCase()}`}>
+          <p className="text-16-medium">{category}</p>
+        </Link>
+        <Button className="startup-card_btn" asChild>
+          <Link href={`/startup/${_id}`}>Details</Link>
+        </Button>
       </div>
     </li>
   );
