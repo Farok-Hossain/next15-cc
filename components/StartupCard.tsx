@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
 
-const StartupCard = ({ post }: { post: StartupCardType }) => {
+const StartupCard = ({ post }: { post: StartupTypeCard }) => {
   const {
     _createdAt,
     views,
